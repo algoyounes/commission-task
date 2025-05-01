@@ -24,7 +24,7 @@ final class Money
         }
 
         if (is_string($currency)) {
-            $currency = Currency::parse($currency);
+            $currency = Currency::fromString($currency);
         }
 
         return new self($amount, $currency);

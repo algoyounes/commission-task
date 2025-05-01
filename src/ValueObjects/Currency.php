@@ -15,7 +15,7 @@ class Currency
         $this->code = $code;
     }
 
-    public static function parse(string $code): self
+    public static function fromString(string $code): self
     {
         return new self(strtoupper($code));
     }
@@ -37,7 +37,7 @@ class Currency
 
     public static function toBase(): self
     {
-        return self::parse(config('app.commission.base_currency', self::DEFAULT_CURRENCY));
+        return self::fromString(config('app.commission.base_currency', self::DEFAULT_CURRENCY));
     }
 
     private function assertValidCurrency(string $code): void

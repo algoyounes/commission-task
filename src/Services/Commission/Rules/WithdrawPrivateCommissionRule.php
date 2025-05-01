@@ -24,7 +24,7 @@ class WithdrawPrivateCommissionRule implements CommissionRuleContract
     {
         $this->currencyService = new CurrencyConversionService();
         $this->withdrawalTrackerService = new WithdrawalTrackerService();
-        $this->baseCurrency = Currency::parse(config('app.commission.base_currency'));
+        $this->baseCurrency = Currency::fromString(config('app.commission.base_currency'));
     }
 
     public function isSupported(Operation $operation): bool

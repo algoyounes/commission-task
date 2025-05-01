@@ -36,8 +36,8 @@ class CurrencyConversionServiceTest extends TestCase
     {
         return [
             'same currency' => [
-                Money::parse('100.00', Currency::parse('EUR')),
-                Currency::parse('EUR'),
+                Money::parse('100.00', Currency::fromString('EUR')),
+                Currency::fromString('EUR'),
                 ExchangeRates::fromArray([
                     'base' => 'EUR',
                     'rates' => ['EUR' => 1, 'USD' => 1.1, 'JPY' => 120.10],
@@ -47,8 +47,8 @@ class CurrencyConversionServiceTest extends TestCase
                 '100.00'
             ],
             'EUR to USD' => [
-                Money::parse('100.00', Currency::parse('EUR')),
-                Currency::parse('USD'),
+                Money::parse('100.00', Currency::fromString('EUR')),
+                Currency::fromString('USD'),
                 ExchangeRates::fromArray([
                     'base' => 'EUR',
                     'rates' => ['EUR' => 1, 'USD' => 1.1, 'JPY' => 120.10],
@@ -58,8 +58,8 @@ class CurrencyConversionServiceTest extends TestCase
                 '110.0000000000',
             ],
             'USD to EUR' => [
-                Money::parse('110.00', Currency::parse('USD')),
-                Currency::parse('EUR'),
+                Money::parse('110.00', Currency::fromString('USD')),
+                Currency::fromString('EUR'),
                 ExchangeRates::fromArray([
                     'base' => 'EUR',
                     'rates' => ['EUR' => 1, 'USD' => 1.1, 'JPY' => 120.10],
@@ -69,8 +69,8 @@ class CurrencyConversionServiceTest extends TestCase
                 '100.0000000000',
             ],
             'USD to JPY' => [
-                Money::parse('110.00', Currency::parse('USD')),
-                Currency::parse('JPY'),
+                Money::parse('110.00', Currency::fromString('USD')),
+                Currency::fromString('JPY'),
                 ExchangeRates::fromArray([
                     'base' => 'EUR',
                     'rates' => ['EUR' => 1, 'USD' => 1.1, 'JPY' => 120.10],
@@ -80,8 +80,8 @@ class CurrencyConversionServiceTest extends TestCase
                 '12010.0000000000',
             ],
             'JPY to EUR' => [
-                Money::parse('13000.00', Currency::parse('JPY')),
-                Currency::parse('EUR'),
+                Money::parse('13000.00', Currency::fromString('JPY')),
+                Currency::fromString('EUR'),
                 ExchangeRates::fromArray([
                     'base' => 'EUR',
                     'rates' => ['EUR' => 1, 'USD' => 1.1, 'JPY' => 120.10],

@@ -19,7 +19,7 @@ class ExchangeRates
     {
         return new self(
             timestamp: $data['timestamp'] ?? 0,
-            base: Currency::parse($data['base']),
+            base: Currency::fromString($data['base']),
             date: DateImmutable::fromString($data['date']),
             rates: $data['rates'] ?? []
         );
