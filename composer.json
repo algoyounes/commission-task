@@ -1,0 +1,34 @@
+{
+    "name": "algoyounes/commission-task",
+    "description": "commission task",
+    "keywords": [],
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "AlgoYounes\\CommissionTask\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AlgoYounes\\CommissionTask\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-bcmath": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "friendsofphp/php-cs-fixer": "2.16"
+    },
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin"
+    },
+    "scripts": {
+        "phpunit": "phpunit",
+        "fix-cs": "php-cs-fixer fix",
+        "test-cs": "php-cs-fixer fix --dry-run -v",
+        "test": ["@phpunit", "@test-cs"]
+    }
+}
