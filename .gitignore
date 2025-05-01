@@ -3,3 +3,4 @@ vendor/
 .DS_Store
 bin/
 .php-cs-fixer.cache
+.phpunit.result.cache
