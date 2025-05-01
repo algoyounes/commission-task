@@ -57,18 +57,17 @@ Run unit tests using the following command:
 composer test:unit
 ```
 
-## Commission Logic & Architecture
-- **Commission rules** _(deposit and withdraw, private vs. business)_ are implemented as separate classes under `Service/Commission/Rules`
+## Commission Logic
+- **Commission rules** _(deposit and withdraw, private vs business)_ are implemented as separate classes under `Service/Commission/Rules`
 - **Weekly free allowance** for private withdrawals is tracked in memory by `WithdrawalTrackerService`
 - **Currency conversion** uses a resilient HTTP client _(AbstractHttpService)_ with retry/backoff
-- **Precision math** is handled via a thin `Support/Math` wrapper around BC Math functions
+- **Precision math** is handled via a thin `Support/Math` wrapper around BC Math for accurate decimal operations
 
-## Libraries & Tools
-- **PHP dotenv**: Loads environment variables from `.env` files
-- **PHP BC Math**: Handles precise calculations
-- **Guzzle**: PHP HTTP client with exponential backoff for failed requests
-- **Mockery**: Mock object framework for testing
-- **PHPUnit**: Unit testing framework
-- **PHP CS Fixer**: Ensures code formatting and standards
-
+## Libraries
+- **[PHP dotenv](https://github.com/vlucas/phpdotenv)** : Loads environment variables from `.env` files
+- **[PHP BC Math](https://www.php.net/manual/en/book.bc.php)** : Handles precise calculations for floating-point math
+- **[Guzzle](https://github.com/guzzle/guzzle)** : PHP HTTP client with exponential backoff for failed requests
+- **[Mockery](https://github.com/mockery/mockery)** : Mocking dependencies to keep tests isolated
+- **[PHPUnit](https://github.com/sebastianbergmann/phpunit)** : Writing and executing unit tests
+- **[PHP CS Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)** : Ensures code formatting and standards
 
