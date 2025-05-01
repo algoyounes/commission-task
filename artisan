@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+use AlgoYounes\CommissionTask\Commands\CalculateCommissionFeesCommand;
+use Dotenv\Dotenv;
+
+require __DIR__ . '/vendor/autoload.php';
+
+Dotenv::createImmutable(__DIR__)->load();
+
+bcscale(10);
+
+array_shift($argv);
+
+if (count($argv) < 1) {
+    echo "Please provide the file path as an argument." . PHP_EOL;
+    exit(1);
+}
+
+$filePath = $argv[0];
+
+if (! file_exists($filePath)) {
+    echo "File not found: $filePath" . PHP_EOL;
+    exit(1);
+}
+
+(new CalculateCommissionFeesCommand())->handle($filePath);
