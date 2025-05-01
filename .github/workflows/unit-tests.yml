@@ -53,5 +53,5 @@ jobs:
       - name: Run PHP CS Fixer (dry-mode)
         run: composer test-cs
 
-      - name: Run Pest Tests
+      - name: Run PHPUnit Tests
         run: composer test:unit
