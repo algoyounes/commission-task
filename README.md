@@ -58,9 +58,9 @@ composer test:unit
 ```
 
 ## Commission Logic
-- **Commission rules** _(deposit and withdraw, private vs business)_ are implemented as separate classes under `Service/Commission/Rules`
+- **Commission rules** _(deposit and withdraw, private vs business)_ are implemented as separate classes under `Services/Commission/Rules`
 - **Weekly free allowance** for private withdrawals is tracked in memory by `WithdrawalTrackerService`
-- **Currency conversion** uses a resilient HTTP client _(AbstractHttpService)_ with retry/backoff
+- **Currency conversion** uses a resilient HTTP client `AbstractHttpService` with retry/backoff
 - **Precision math** is handled via a thin `Support/Math` wrapper around BC Math for accurate decimal operations
 
 ## Libraries
