@@ -59,25 +59,25 @@ class WithdrawPrivateCommissionRule implements CommissionRuleContract
 
     private function calculateTaxableAmount(int $weeklyWithdrawalCount, Money $weeklyWithdrawnAmount, Money $currentAmount): Money
     {
-        // 1) free ops exhausted
+        // 1. free operations are already used
         if ($weeklyWithdrawalCount >= $this->getWeeklyFreeOperations()) {
             return $currentAmount;
         }
 
         $weeklyFreeAmount = Money::parse($this->getWeeklyFreeAmount(), $this->getBaseCurrency());
 
-        // 2) €1 000 already used
+        // 2. free amount is already used
         if ($weeklyWithdrawnAmount->compare($weeklyFreeAmount) >= 0) {
             return $currentAmount;
         }
 
-        // 3) stays within free quota
+        // 3. current amount is less than the free amount
         $newTotal = $weeklyWithdrawnAmount->add($currentAmount);
         if ($newTotal->compare($weeklyFreeAmount) <= 0) {
             return Money::toZero();
         }
 
-        // 4) crosses limit → excess only
+        // 4. current amount is greater than the free amount
         return $newTotal->subtract($weeklyFreeAmount);
     }
 
