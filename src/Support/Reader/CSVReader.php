@@ -39,27 +39,18 @@ final class CSVReader
      */
     public function read(): Generator
     {
-        try {
-            $this->fileObject->rewind();
+        $this->fileObject->rewind();
 
-            while (($data = $this->fileObject->fgetcsv()) !== false) {
-                if (empty($data[0])) {
-                    continue;
-                }
-
-                if ($this->objectClass !== null) {
-                    $data = $this->objectClass::fromArray($data);
-                }
-
-                yield $data;
+        while (($data = $this->fileObject->fgetcsv()) !== false) {
+            if (empty($data[0])) {
+                continue;
             }
-        } finally {
-            $this->close();
-        }
-    }
 
-    public function close(): void
-    {
-        unset($this->fileObject);
+            if ($this->objectClass !== null) {
+                $data = $this->objectClass::fromArray($data);
+            }
+
+            yield $data;
+        }
     }
 }
