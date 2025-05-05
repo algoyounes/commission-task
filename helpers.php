@@ -19,7 +19,7 @@ if (! function_exists('config')) {
             return $configCache[$key];
         }
 
-        $configDirectory = __DIR__ . '/src/config/';
+        $configDirectory = __DIR__ . '/config/';
         $segments = explode('.', $key);
         $fileName = array_shift($segments);
         $filePath = $configDirectory . $fileName . '.php';
