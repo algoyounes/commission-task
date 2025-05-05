@@ -1,4 +1,4 @@
-# Commission Calculator App
+# Commission Calculator Task
 
 > [!NOTE]
 > This calculator requires PHP 8.2+
@@ -60,7 +60,7 @@ composer test:unit
 ## Commission Logic
 - **Commission rules** _(deposit and withdraw, private vs business)_ are implemented as separate classes under `Services/Commission/Rules`
 - **Weekly free allowance** for private withdrawals is tracked in memory by `WithdrawalTrackerService`
-- **Currency conversion** uses a resilient HTTP client `AbstractHttpService` with retry/backoff
+- **Currency conversion** uses a resilient HTTP client `AbstractHttpService` with `retry/backoff`
 - **Precision math** is handled via a thin `Support/Math` wrapper around BC Math for accurate decimal operations
 
 ## Libraries
